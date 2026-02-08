@@ -2,7 +2,7 @@ pipeline {
 
 agent any
 stages {
-stage('init') {
+/* stage('init') {
 steps{
 bat 'C://apache-maven-3.9.12//bin//mvn clean'
 }
@@ -10,13 +10,20 @@ bat 'C://apache-maven-3.9.12//bin//mvn clean'
 stage('test') {
 steps{
 bat 'C://apache-maven-3.9.12//bin//mvn test'
-junit 'target/surefire-reports/*.xml'
+junit 'target/surefire-reports *//*.xml'
 }
-}
+} */
 stage('build') {
 steps{
 bat 'C://apache-maven-3.9.12//bin//mvn package'
 archiveArtifacts 'target/*.jar'
+}
+}
+
+stage('documentation') {
+steps{
+bat 'C://apache-maven-3.9.12//bin//mvn  javadoc:javadoc'
+archiveArtifacts 'target/site'
 }
 }
 }
