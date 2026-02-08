@@ -4,14 +4,12 @@ agent any
 stages {
 stage('init') {
 steps{
-bat 'C://apache-maven-3.9.12//bin//mvn clean '
-archiveArtifacts 'target/*.jar'
+bat 'C://apache-maven-3.9.12//bin//mvn clean'
 }
 }
 stage('test') {
 steps{
-bat 'C://apache-maven-3.9.12//bin//mvn test '
-archiveArtifacts 'target/*.jar'
+bat 'C://apache-maven-3.9.12//bin//mvn test'
 junit 'target/surefire-reports/*.xml'
 }
 }
